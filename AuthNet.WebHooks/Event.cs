@@ -209,16 +209,7 @@ namespace AuthNet.WebHooks
                     return WebhookEventType.PaymentProfileEvent;
                 }
             }
-            else if (eventType.StartsWith("net.authorize.customer", StringComparison.InvariantCultureIgnoreCase))
-            {
-                if (eventType.Equals("net.authorize.customer.created", StringComparison.InvariantCultureIgnoreCase)
-                    || eventType.Equals("net.authorize.customer.updated", StringComparison.InvariantCultureIgnoreCase)
-                    || eventType.Equals("net.authorize.customer.deleted", StringComparison.InvariantCultureIgnoreCase)
-                )
-                {
-                    return WebhookEventType.CustomerEvent;
-                }
-            }
+            
             else if (eventType.StartsWith("net.authorize.customer.subscription", StringComparison.InvariantCultureIgnoreCase))
             {
                 if (eventType.Equals("net.authorize.customer.subscription.created", StringComparison.InvariantCultureIgnoreCase)
@@ -232,6 +223,18 @@ namespace AuthNet.WebHooks
                     return WebhookEventType.SubscriptionEvent;
                 }
             }
+            
+            else if (eventType.StartsWith("net.authorize.customer", StringComparison.InvariantCultureIgnoreCase))
+            {
+                if (eventType.Equals("net.authorize.customer.created", StringComparison.InvariantCultureIgnoreCase)
+                    || eventType.Equals("net.authorize.customer.updated", StringComparison.InvariantCultureIgnoreCase)
+                    || eventType.Equals("net.authorize.customer.deleted", StringComparison.InvariantCultureIgnoreCase)
+                )
+                {
+                    return WebhookEventType.CustomerEvent;
+                }
+            }
+
             else if (eventType.StartsWith("net.authorize.payment", StringComparison.InvariantCultureIgnoreCase))
             {
                 if (eventType.Equals("net.authorize.payment.authorization.created", StringComparison.InvariantCultureIgnoreCase)
